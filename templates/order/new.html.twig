@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create Order{% endblock %}
+
+{% block body %}
+    <h1>Create a New Order</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert-success">{{ message }}</div>
+    {% endfor %}
+
+    {{ form(form) }}
+
+    <a href="{{ path('order_index') }}">Back to list</a>
+{% endblock %}

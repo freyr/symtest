@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Order List{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="alert-success">{{ message }}</div>
+    {% endfor %}
+    <h1>Orders</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+                <tr>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.name }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="2">No orders found.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('order_new') }}">Create New Order</a>
+{% endblock %}
