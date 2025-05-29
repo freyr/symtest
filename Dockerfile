@@ -21,4 +21,25 @@ RUN echo "umask $UMASK" >> /etc/profile
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+# Install Pact Ruby Standalone (platform-independent)
+ENV PACT_STANDALONE_VERSION=2.0.2
+
+RUN set -eux; \
+    ARCH="$(uname -m)"; \
+    if [ "$ARCH" = "x86_64" ]; then \
+      PLATFORM="linux-x86_64"; \
+    elif [ "$ARCH" = "aarch64" ]; then \
+      PLATFORM="linux-arm64"; \
+    else \
+      echo "Unsupported architecture: $ARCH"; exit 1; \
+    fi; \
+    apt-get update && apt-get install -y curl && \
+    curl -Lo /tmp/pact.tar.gz "https://github.com/pact-foundation/pact-ruby-standalone/releases/download/v${PACT_STANDALONE_VERSION}/pact-${PACT_STANDALONE_VERSION}-${PLATFORM}.tar.gz" && \
+    mkdir -p /opt/pact && \
+    tar -xzf /tmp/pact.tar.gz -C /opt/pact && \
+    ln -s /opt/pact/pact/bin/pact /usr/local/bin/pact && \
+    rm /tmp/pact.tar.gz
+
+ENV PATH="/opt/pact/pact/bin:${PATH}"
+
 WORKDIR /app

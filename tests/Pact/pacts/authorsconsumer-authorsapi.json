@@ -1,0 +1,84 @@
+{
+  "consumer": {
+    "name": "AuthorsConsumer"
+  },
+  "provider": {
+    "name": "AuthorsApi"
+  },
+  "interactions": [
+    {
+      "description": "a request for authors list",
+      "providerState": "authors exist",
+      "request": {
+        "method": "GET",
+        "path": "/api/authors/"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": [
+          {
+            "id": 1,
+            "name": "John Doe",
+            "email": "john@example.com"
+          }
+        ],
+        "matchingRules": {
+          "$.body": {
+            "min": 1
+          },
+          "$.body[*].*": {
+            "match": "type"
+          },
+          "$.body[*].id": {
+            "match": "type"
+          },
+          "$.body[*].name": {
+            "match": "type"
+          },
+          "$.body[*].email": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a request to create an author",
+      "providerState": "can create an author",
+      "request": {
+        "method": "POST",
+        "path": "/api/authors/",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "name": "Jane Doe",
+          "email": "jane@example.com"
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 2,
+          "name": "Jane Doe",
+          "email": "jane@example.com"
+        },
+        "matchingRules": {
+          "$.body.id": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
