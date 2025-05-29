@@ -10,6 +10,8 @@ use App\Form\OrderType;
 use App\Repository\OrderRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Messenger\MessageBusInterface;
+use App\Message\OrderCreated;
 
 class OrderController extends AbstractController
 {
@@ -23,7 +25,7 @@ class OrderController extends AbstractController
     }
 
     #[Route('/orders/new', name: 'order_new')]
-    public function new(Request $request, EntityManagerInterface $em): Response
+    public function new(Request $request, EntityManagerInterface $em, MessageBusInterface $bus): Response
     {
         $order = new Order();
         $form = $this->createForm(OrderType::class, $order);
@@ -32,6 +34,8 @@ class OrderController extends AbstractController
             $order->setCreatedAt(new \DateTimeImmutable());
             $em->persist($order);
             $em->flush();
+            // Dispatch OrderCreated message
+            $bus->dispatch(new OrderCreated('Order ID: ' . $order->getId()));
             $this->addFlash('success', 'Order created successfully!');
             return $this->redirectToRoute('order_index');
         }
