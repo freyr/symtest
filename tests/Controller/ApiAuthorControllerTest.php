@@ -9,14 +9,14 @@ class ApiAuthorControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('GET', '/api/authors/');
-        $this->assertResponseIsSuccessful();
-        $this->assertResponseFormatSame('json');
+        self::assertResponseIsSuccessful();
+        self::assertResponseFormatSame('json');
         $data = json_decode($client->getResponse()->getContent(), true);
-        $this->assertIsArray($data);
-        $this->assertNotEmpty($data, 'Authors list should not be empty (fixtures should provide authors)');
+        self::assertIsArray($data);
+        self::assertNotEmpty($data, 'Authors list should not be empty (fixtures should provide authors)');
         $author = $data[0];
-        $this->assertArrayHasKey('id', $author);
-        $this->assertArrayHasKey('name', $author);
-        $this->assertArrayHasKey('email', $author);
+        self::assertArrayHasKey('id', $author);
+        self::assertArrayHasKey('name', $author);
+        self::assertArrayHasKey('email', $author);
     }
 }

@@ -11,10 +11,10 @@ class OrderControllerTest extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('GET', '/orders');
 
-        $this->assertResponseIsSuccessful();
-        $this->assertSelectorExists('table'); // Assuming orders are in a table
+        self::assertResponseIsSuccessful();
+        self::assertSelectorExists('table'); // Assuming orders are in a table
         // Optionally check for table rows
-        $this->assertGreaterThan(0, $crawler->filter('table tbody tr')->count(), 'No orders displayed');
+        self::assertGreaterThan(0, $crawler->filter('table tbody tr')->count(), 'No orders displayed');
     }
 
     public function testAddNewOrder()
@@ -22,7 +22,7 @@ class OrderControllerTest extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('GET', '/orders/new');
 
-        $this->assertResponseIsSuccessful();
+        self::assertResponseIsSuccessful();
         $form = $crawler->selectButton('Create')->form(); // Assuming button label is 'Save'
 
         // Fill in the form fields to match OrderType
@@ -35,8 +35,8 @@ class OrderControllerTest extends WebTestCase
         $form['order[status]'] = $statusOptions[1] ?? $statusOptions[0];
 
         $client->submit($form);
-        $this->assertResponseRedirects();
+        self::assertResponseRedirects();
         $client->followRedirect();
-        $this->assertSelectorExists('.alert-success'); // Assuming a success alert is shown
+        self::assertSelectorExists('.alert-success'); // Assuming a success alert is shown
     }
 }
