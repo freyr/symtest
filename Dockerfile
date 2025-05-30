@@ -42,4 +42,8 @@ RUN set -eux; \
 
 ENV PATH="/opt/pact/pact/bin:${PATH}"
 
+# Disable PHP deprecation warnings
+RUN sed -i 's/^error_reporting = .*/error_reporting = E_ALL \& ~E_DEPRECATED \& ~E_USER_DEPRECATED/' /usr/local/etc/php/php.ini || \
+    echo "error_reporting = E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED" >> /usr/local/etc/php/php.ini
+
 WORKDIR /app
