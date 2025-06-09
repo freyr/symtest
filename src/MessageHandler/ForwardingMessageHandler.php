@@ -10,20 +10,20 @@ use Symfony\Component\Messenger\Stamp\TransportNamesStamp;
 #[AsMessageHandler(fromTransport: 'inbox', handles: '*')]
 class ForwardingMessageHandler
 {
-  private MessageBusInterface $bus;
+    private MessageBusInterface $bus;
 
-  public function __construct(MessageBusInterface $bus)
-  {
-    $this->bus = $bus;
-  }
+    public function __construct(MessageBusInterface $bus)
+    {
+        $this->bus = $bus;
+    }
 
-  public function __invoke(object $message): void
-  {
-    $this->bus->dispatch(
-      new Envelope(
-        $message,
-        [new TransportNamesStamp('async')],
-      ),
-    );
-  }
+    public function __invoke(object $message): void
+    {
+        $this->bus->dispatch(
+            new Envelope(
+                $message,
+                [new TransportNamesStamp('async')],
+            ),
+        );
+    }
 }
