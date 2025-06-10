@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace App\Groceries\Core\Port\Incoming;
 
+use App\Groceries\Core\Model\ProductId;
+use App\Groceries\Core\Model\Quantity;
+
 interface RequestResupplyCommand
 {
-    public string $productId {get;}
-    public Amount $amount {get;}
+    public ProductId $productId {get;}
+    public Quantity $quantity {get;}
 }
