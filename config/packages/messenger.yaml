@@ -7,6 +7,8 @@ framework:
         dsn: 'doctrine://default?queue_name=inbox'
       async:
         dsn: '%env(MESSENGER_TRANSPORT_AMQP_DSN)%'
+      sync:
+        dsn: 'sync://'
 
     routing:
       'App\Message\*': inbox

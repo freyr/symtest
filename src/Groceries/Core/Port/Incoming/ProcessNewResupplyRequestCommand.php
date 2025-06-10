@@ -4,7 +4,4 @@ declare(strict_types=1);
 
 namespace App\Groceries\Core\Port\Incoming;
 
-interface RestockProductWithLowStockCommand
-{
-
-}
+interface ProcessNewResupplyRequestCommand {}
