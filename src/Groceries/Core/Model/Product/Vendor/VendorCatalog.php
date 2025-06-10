@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Groceries\Core\Model\Vendor;
+namespace App\Groceries\Core\Model\Product\Vendor;
 
 use App\Groceries\Core\Model\Product\CategoryId;
 

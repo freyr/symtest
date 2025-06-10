@@ -13,4 +13,7 @@ interface RequestResupplyRepository
     public function save(ResupplyRequest $resupplyRequest): void;
 
     public function get(UuidInterface $resupplyRequestId): ResupplyRequest;
+
+    /** @return ResupplyRequest[] */
+    public function getOutstandingRequests(): array;
 }

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Groceries\Core\UseCase;
 
 use App\Groceries\Core\Model\Product\ProductCatalog;
-use App\Groceries\Core\Model\Vendor\VendorCatalog;
+use App\Groceries\Core\Model\Product\Vendor\VendorCatalog;
 use App\Groceries\Core\Port\Incoming\ProcessNewResupplyRequestCommand;
 use App\Groceries\Core\Port\Outgoing\RequestResupplyRepository;
 use App\Groceries\Core\Port\VendorPairingStrategy;
@@ -38,13 +38,13 @@ final readonly class ProcessNewResupplyRequestHandler
 
             $this->bus->dispatch(
                 // TODO: this should change to classic integration event
-                new CreateNewOrderForResupplyRequest(
+                new ResupplyRequestWasAssigned(
 
                 ),
             );
 
             // TODO: this should additionaly keep selected vendor in resupplyRequest
-            $resupplyRequest->markAsExecuted();
+            $resupplyRequest->assignVendor($vendor->id);
             $this->repository->save($resupplyRequest);
         }
     }

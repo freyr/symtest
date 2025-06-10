@@ -7,5 +7,6 @@ namespace App\Groceries\Core\Model\Resupply;
 enum ResupplyRequestStatus: string
 {
     case New = 'new';
+    case Assigned = 'assigned';
     case Executed = 'executed';
 }

@@ -4,11 +4,8 @@ declare(strict_types=1);
 
 namespace App\Groceries\Core\Model\Product;
 
-use Ramsey\Uuid\UuidInterface;
+use Freyr\Identity\Id;
 
-class CategoryId
+class CategoryId extends Id
 {
-    public function __construct(
-        public UUidInterface $id
-    ) {}
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "37bbaeb64c62a2c2f67a5c80906a84b8",
+    "content-hash": "367884c787580bbf66a9dffadcbf9f36",
     "packages": [
         {
             "name": "brick/math",
@@ -1282,6 +1282,55 @@
                 "source": "https://github.com/doctrine/sql-formatter/tree/1.5.2"
             },
             "time": "2025-01-24T11:45:48+00:00"
+        },
+        {
+            "name": "freyr/identity",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/freyr/identity.git",
+                "reference": "14145a10ccd204a7e835fd7b715e8fc9a7278d66"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/freyr/identity/zipball/14145a10ccd204a7e835fd7b715e8fc9a7278d66",
+                "reference": "14145a10ccd204a7e835fd7b715e8fc9a7278d66",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.4",
+                "ramsey/uuid": "^4.7"
+            },
+            "require-dev": {
+                "ergebnis/composer-normalize": "^2.45",
+                "kubawerlos/php-cs-fixer-custom-fixers": "^3.7.2",
+                "phpcompatibility/php-compatibility": "10.x-dev as 9.99.0",
+                "phpcompatibility/phpcompatibility-symfony": "^1.2",
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-deprecation-rules": "^2.0",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpstan/phpstan-strict-rules": "^2.0",
+                "phpstan/phpstan-symfony": "^2.0",
+                "phpunit/phpunit": "^12.0",
+                "symplify/easy-coding-standard": "^12.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Freyr\\Identity\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A PHP library for Identity concept.",
+            "support": {
+                "issues": "https://github.com/freyr/identity/issues",
+                "source": "https://github.com/freyr/identity/tree/0.1.1"
+            },
+            "time": "2025-06-09T19:14:14+00:00"
         },
         {
             "name": "psr/cache",
