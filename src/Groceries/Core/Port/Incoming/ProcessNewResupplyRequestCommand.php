@@ -4,4 +4,9 @@ declare(strict_types=1);
 
 namespace App\Groceries\Core\Port\Incoming;
 
-interface ProcessNewResupplyRequestCommand {}
+use Ramsey\Uuid\UuidInterface;
+
+interface ProcessNewResupplyRequestCommand
+{
+    public UUidInterface $resupplyRequestId{get;}
+}

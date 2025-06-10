@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Groceries\Core\UseCase;
 
-use App\Groceries\Core\Model\ProductCatalog;
-use App\Groceries\Core\Model\ResupplyRequest;
-use App\Groceries\Core\Model\ResupplyRequestedEvent;
+use App\Groceries\Core\Model\Product\ProductCatalog;
+use App\Groceries\Core\Model\Resupply\ResupplyRequest;
+use App\Groceries\Core\Model\Resupply\ResupplyRequestedEvent;
 use App\Groceries\Core\Port\Incoming\RequestResupplyCommand;
 use App\Groceries\Core\Port\Outgoing\RequestResupplyRepository;
 use RuntimeException;

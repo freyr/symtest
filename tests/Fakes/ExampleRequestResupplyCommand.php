@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace App\Tests\Fakes;
 
-use App\Groceries\Core\Model\ProductId;
-use App\Groceries\Core\Model\Quantity;
-use App\Groceries\Core\Model\Unit;
+use App\Groceries\Core\Model\Product\ProductId;
+use App\Groceries\Core\Model\Resupply\Quantity;
+use App\Groceries\Core\Model\Resupply\Unit;
 use App\Groceries\Core\Port\Incoming\RequestResupplyCommand;
-use Ramsey\Uuid\Uuid;
 
 class ExampleRequestResupplyCommand implements RequestResupplyCommand
 {

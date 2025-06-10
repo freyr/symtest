@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Groceries\Core\Model;
+namespace App\Groceries\Core\Model\Resupply;
 
 class Quantity
 {

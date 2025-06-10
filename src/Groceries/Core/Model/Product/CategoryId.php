@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Groceries\Core\Model;
+namespace App\Groceries\Core\Model\Product;
 
 use Ramsey\Uuid\UuidInterface;
 
-readonly class ProductId
+class CategoryId
 {
     public function __construct(
         public UUidInterface $id

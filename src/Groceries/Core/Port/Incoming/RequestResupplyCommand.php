@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Groceries\Core\Port\Incoming;
 
-use App\Groceries\Core\Model\ProductId;
-use App\Groceries\Core\Model\Quantity;
+use App\Groceries\Core\Model\Product\ProductId;
+use App\Groceries\Core\Model\Resupply\Quantity;
 
 interface RequestResupplyCommand
 {

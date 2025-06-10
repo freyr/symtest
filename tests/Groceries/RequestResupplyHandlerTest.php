@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Tests\Groceries;
 
-use App\Groceries\Core\Model\ProductCatalog;
-use App\Groceries\Core\Model\ProductId;
-use App\Groceries\Core\Model\ResupplyRequestedEvent;
+use App\Groceries\Core\Model\Product\ProductCatalog;
+use App\Groceries\Core\Model\Product\ProductId;
+use App\Groceries\Core\Model\Resupply\ResupplyRequestedEvent;
 use App\Groceries\Core\UseCase\RequestResupplyHandler;
 use App\Tests\Fakes\ExampleRequestResupplyCommand;
 use App\Tests\Fakes\MessageBusInMemory;
