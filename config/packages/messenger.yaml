@@ -11,6 +11,8 @@ framework:
     transports:
       outbox:
         dsn: 'doctrine://default?queue_name=outbox'
+      cqrs:
+        dsn: 'doctrine://default?queue_name=cqrs'
       async:
         dsn: '%env(MESSENGER_TRANSPORT_AMQP_DSN)%'
         serializer: 'App\Groceries\Adapter\EventJsonSerializer'
@@ -19,3 +21,4 @@ framework:
 
     routing:
       'App\Message\*': outbox
+      'App\Warehouse\Core\UseCase\Event\*': cqrs

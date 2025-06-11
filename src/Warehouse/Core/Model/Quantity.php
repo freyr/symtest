@@ -8,7 +8,7 @@ class Quantity
 {
     public function __construct(
         private float $qty,
-        private Unit $unit,
+        public readonly Unit $unit,
     ) {}
 
     public function add(Quantity $quantity): void
@@ -25,6 +25,11 @@ class Quantity
             throw new \InvalidArgumentException('Cannot add quantities with different units');
         }
         $this->qty -= $quantity->qty;
+    }
+
+    public function getQty(): float
+    {
+        return $this->qty;
     }
 
 }

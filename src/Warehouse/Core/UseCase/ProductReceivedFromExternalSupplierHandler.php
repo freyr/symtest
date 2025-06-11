@@ -36,8 +36,9 @@ class ProductReceivedFromExternalSupplierHandler
         $product->addQuantity($command->quantity);
         $this->bus->dispatch(
             new ProductWasReceived(
-                (string)$command->productId,
-            // TODO
+                $product->getProductId(),
+                $product->getSupplierId(),
+                $product->getQuantity(),
             ),
         );
         $this->warehouseRepository->save($product);

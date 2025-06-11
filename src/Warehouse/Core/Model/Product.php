@@ -25,6 +25,18 @@ class Product {
         $this->quantity->remove($quantity);
     }
 
+    public function getProductId(): ProductId
+    {
+        return $this->productId;
+    }
 
+    public function getSupplierId(): SupplierId
+    {
+        return $this->supplierId;
+    }
 
+    public function getQuantity(): Quantity
+    {
+        return $this->quantity;
+    }
 }
