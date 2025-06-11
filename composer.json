@@ -11,6 +11,8 @@
         "doctrine/doctrine-bundle": "^2.14",
         "doctrine/doctrine-migrations-bundle": "^3.4.2",
         "doctrine/orm": "^3.3.3",
+        "freyr/identity": "^0.1.1",
+        "ramsey/uuid": "^4.8.1",
         "symfony/amqp-messenger": "7.3.*",
         "symfony/console": "7.3.*",
         "symfony/doctrine-messenger": "7.3.*",
@@ -21,11 +23,11 @@
         "symfony/messenger": "7.3.*",
         "symfony/runtime": "7.3.*",
         "symfony/security-csrf": "7.3.*",
+        "symfony/serializer": "7.3.*",
         "symfony/twig-bundle": "7.3.*",
         "symfony/validator": "7.3.*",
         "symfony/yaml": "7.3.*",
-        "ramsey/uuid": "^4.8.1",
-        "freyr/identity": "^0.1.1"
+        "ext-amqp": "*"
     },
     "config": {
         "allow-plugins": {

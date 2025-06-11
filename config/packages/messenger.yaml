@@ -2,13 +2,20 @@ framework:
   messenger:
     default_bus: messenger.bus.default
 
+    buses:
+      messenger.bus.default:
+        middleware:
+            - App\Messenger\Middleware\EventNameStampMiddleware
+            - doctrine_transaction
+
     transports:
-      inbox:
-        dsn: 'doctrine://default?queue_name=inbox'
+      outbox:
+        dsn: 'doctrine://default?queue_name=outbox'
       async:
         dsn: '%env(MESSENGER_TRANSPORT_AMQP_DSN)%'
+        serializer: 'App\Groceries\Adapter\EventJsonSerializer'
       sync:
         dsn: 'sync://'
 
     routing:
-      'App\Message\*': inbox
+      'App\Message\*': outbox

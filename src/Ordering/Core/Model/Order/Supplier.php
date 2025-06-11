@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Groceries\Core\Model\Order;
+namespace App\Ordering\Core\Model\Order;
 
 class Supplier
 {

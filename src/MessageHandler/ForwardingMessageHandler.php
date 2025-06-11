@@ -7,7 +7,7 @@ use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Messenger\Stamp\TransportNamesStamp;
 
-#[AsMessageHandler(fromTransport: 'inbox', handles: '*')]
+#[AsMessageHandler(fromTransport: 'outbox', handles: '*')]
 class ForwardingMessageHandler
 {
     private MessageBusInterface $bus;

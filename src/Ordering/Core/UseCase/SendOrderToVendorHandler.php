@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Groceries\Core\UseCase;
+namespace App\Ordering\Core\UseCase;
 
-use App\Groceries\Core\Port\Incoming\SendOrderToVendorCommand;
+use App\Ordering\Core\Port\Incoming\SendOrderToVendorCommand;
 
 class SendOrderToVendorHandler
 {
